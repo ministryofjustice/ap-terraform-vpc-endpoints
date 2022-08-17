@@ -1,3 +1,4 @@
+Creates VPS-endpoints for access to S3
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
