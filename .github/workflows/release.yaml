@@ -1,0 +1,12 @@
+name: Run semantic-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: ministryofjustice/ap-shared-github-actions/.github/workflows/release.yaml@main
+    secrets: inherit
