@@ -9,8 +9,6 @@
 # Test lock file
 test/.terraform.lock.hcl
 
-# tflint
-.tflint.hcl
 
 # Crash log files
 crash.log

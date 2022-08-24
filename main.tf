@@ -12,20 +12,18 @@ resource "aws_vpc_endpoint" "s3_gateway" {
       Name = "s3-gateway-vpc-endpoint"
     },
   )
-  policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Sid" : "AllowAll",
-        "Effect" : "Allow",
-        "Principal" : {
-          "AWS" : "*"
-        },
-        "Action" : [
-          "s3:*"
-        ],
-        "Resource" : "*"
-      }
-    ]
-  })
+
+}
+data "aws_iam_policy_document" "manage_policy" {
+  statement {
+    sid       = "AllowAll"
+    effect    = "Allow"
+    resources = ["*"]
+    actions   = ["s3:*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+  }
 }
