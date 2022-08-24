@@ -1,4 +1,14 @@
 Creates VPS-endpoints for access to S3
+
+Add the following code to call the module
+module "vpc_endpoints" {
+    source                  = "git@github.com:ministryofjustice/ap-terraform-vpc-endpoints?ref=v1.0.0"
+    vpc_id    = module.vpc.vpc_id
+    s3_routing_table_ids    = module.vpc.private_route_table_ids
+  
+}
+
+The calling module passes the vpc_id and the ids of the private route tables to enable the creation of the gateway endpoint.
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -23,13 +33,13 @@ No modules.
 |------|------|
 | [aws_vpc_endpoint.s3_gateway](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint) | resource |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
-| [aws_route_table.selected](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route_table) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_s3_gateway"></a> [enable\_s3\_gateway](#input\_enable\_s3\_gateway) | enable s3 gateway | `bool` | n/a | yes |
+| <a name="input_s3_routing_table_ids"></a> [s3\_routing\_table\_ids](#input\_s3\_routing\_table\_ids) | id of the routing table to use | `list(string)` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to endpoint resources | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | id of the vpc | `string` | n/a | yes |
 
 ## Outputs

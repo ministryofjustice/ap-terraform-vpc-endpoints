@@ -1,5 +1,8 @@
 module "example" {
-    source = "./.."
-    enable_s3_gateway = "true"
-    vpc_id = "foo bar"
+  source            = "./.."
+  vpc_id            = "foo bar"
+
+  s3_routing_table_ids = ["A1234"]
 }
+
+
