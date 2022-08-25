@@ -6,6 +6,7 @@ resource "aws_vpc_endpoint" "s3_gateway" {
   vpc_endpoint_type = "Gateway"
   service_name      = "com.amazonaws.${data.aws_region.current.name}.s3"
   route_table_ids   = var.s3_routing_table_ids
+  policy            = data.aws_iam_policy_document.manage_policy.json
   tags = merge(
     var.tags,
     {
