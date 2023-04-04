@@ -15,13 +15,13 @@ The calling module passes the vpc_id and the ids of the private route tables to 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.71.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.71.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.71.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.60.0 |
 
 ## Modules
 
